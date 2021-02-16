@@ -1,0 +1,25 @@
+<body>
+    <h2>登録</h2>
+    <form method="post" action="/insert">
+        <p>アイテムコード：<input type="text" name="itemCode" size="5"></p>
+        <p>テキスト：<input type="text" name="text" size="30"></p>
+        <p>Amazon SNSフィルタ：<input type="text" name="filterValue" size="8"></p>
+        <p><input type="submit" value="登録"></p>
+    </form>
+    
+    <h2>一覧</h2>
+    <ul>
+        {{range .items}}
+            <p style="display:inline;">
+            アイテムコード：{{.ItemCode}}、テキスト：{{.Text}}
+                <a href="/detail/{{.ID}}">編集</a>
+                <form method="post" action="/delete/{{.ID}}" style="display:inline;">
+                    <input type="hidden" name="itemCode" value="{{.ItemCode}}" >
+                    <input type="hidden" name="text" value="{{.Text}}" >
+                    <input type="submit" value="削除">
+                    （Amazon SNSフィルタ：<input type="text" name="filterValue" size="8">）
+                </form>
+            </p>
+        {{end}}
+    </ul>
+    </body>

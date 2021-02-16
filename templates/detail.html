@@ -1,0 +1,12 @@
+<body>
+    <h2>編集画面</h2>
+    <form method="post" action="/update/{{.item.ID}}">
+        <p>アイテムコード<input type="text" name="itemCode" size="5" value="{{.item.ItemCode}}" ></p>
+        <p>テキスト<input type="text" name="text" size="30" value="{{.item.Text}}" ></p>
+        Amazon SNSフィルタ：<input type="text" name="filterValue" size="8">
+        <p><input type="submit" value="更新"></p>
+    </form>
+    <form method="get" action="/">
+        <input type="submit" value="キャンセル">
+    </form>
+</body>
